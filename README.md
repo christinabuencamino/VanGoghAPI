@@ -22,6 +22,7 @@ There are three endpoints currently supported:
 #### 1. /painting
 Supports GET and POST methods.<br>
 GET /painting returns all paintings, with paintinginfo, from the database. Example of successful GET response:
+
 ```JSON
 {
     "statusCode": 200,
@@ -93,7 +94,9 @@ GET /painting returns all paintings, with paintinginfo, from the database. Examp
     ]
 }
 ```
+
 Example of failure:
+
 ```JSON
     "statusCode": 404,
     "statusDescription": "No paintings found.",
@@ -101,6 +104,7 @@ Example of failure:
 ```
 <br>
 POST /painting requires a request body in the following format, where you can optionally add painting information:
+
 ```JSON
 {
      "paintingId": 10,
@@ -108,7 +112,9 @@ POST /painting requires a request body in the following format, where you can op
      "paintingInfo": {}
 }
 ```
+
 and returns if successful:
+
 ```JSON
 {
     "statusCode": 200,
@@ -116,7 +122,9 @@ and returns if successful:
     "paintings": null
 }
 ```
+
 and returns if unsuccessful:
+
 ```JSON
 {
     "statusCode": 400,
@@ -124,9 +132,11 @@ and returns if unsuccessful:
     "paintings": null
 }
 ```
+
 #### 2. /painting/{id}
 Supports GET, PUT, and DELETE methods.<br>
 GET /painting/{id} returns painting information where PaintingId = id. Example response with id = 1:
+
 ```JSON
 {
     "statusCode": 200,
@@ -150,7 +160,9 @@ GET /painting/{id} returns painting information where PaintingId = id. Example r
     ]
 }
 ```
+
 Example of a failed GET response:
+
 ```JSON
 {
     "statusCode": 404,
@@ -158,12 +170,118 @@ Example of a failed GET response:
     "paintings": null
 }
 ```
+
 <br>
 PUT /painting/{id} updates painting information where PaintingId = id. Sample request body:
-```JSON
 
+```JSON
+{
+     "paintingId": 1,
+     "paintingName": "The Starry Night",
+     "paintingInfo": {}
+}
 ```
 
-- /paintinginfo/{id}
+and a success:
 
-These 
+```JSON
+{
+    "statusCode": 200,
+    "statusDescription": "Update successful on painting #1!",
+    "paintings": [
+        {
+            "paintingId": 1,
+            "paintingName": "The Starry Night",
+            "paintingInfo": {
+                "paintingInfoId": 0,
+                "yearFinished": null,
+                "isPortrait": false,
+                "isSelf": false,
+                "isPlant": false,
+                "isAnimal": false,
+                "isLandscape": false,
+                "paintingId": 0,
+                "location": "Not listed."
+            }
+        }
+    ]
+}
+```
+
+and a failure when paintingId does not match id:
+
+```JSON
+{
+    "statusCode": 400,
+    "statusDescription": "Bad request. Parameter painting ID does not match PaintingID.",
+    "paintings": null
+}
+```
+
+and a failure when paintingId does not exist:
+
+```JSON
+{
+    "statusCode": 404,
+    "statusDescription": "Painting ID not found.",
+    "paintings": null
+}
+```
+
+<br>
+The DELETE method will only process if PaintingInfo for the associated id has been deleted already. Example of success:
+Example of failure:
+
+#### 3. /paintinginfo/{id}
+Supports PUT and DELETE methods.
+PUT /paintinginfo/{id} updates the PaintingInfo of a painting with paintingId = id. Example of request body:
+
+```JSON
+{
+    "paintingId": 4,
+    "paintingName": "Irises",
+    "paintingInfo": {
+       "paintingInfoId": 4,
+                "yearFinished": 1889,
+                "isPortrait": false,
+                "isSelf": false,
+                "isPlant": true,
+                "isAnimal": false,
+                "isLandscape": false,
+                "paintingId": 4,
+                "location": "J. Paul Getty Museum, California"
+            }
+}
+```
+
+and a successful response message:
+
+```JSON
+{
+    "statusCode": 200,
+    "statusDescription": "Update successful on painting #4!",
+    "paintings": [
+        {
+            "paintingId": 4,
+            "paintingName": "Irises",
+            "paintingInfo": {
+                "paintingInfoId": 4,
+                "yearFinished": 1889,
+                "isPortrait": false,
+                "isSelf": false,
+                "isPlant": true,
+                "isAnimal": false,
+                "isLandscape": false,
+                "paintingId": 4,
+                "location": "J. Paul Getty Museum, California"
+            }
+        }
+    ]
+}
+```
+
+and an unsuccessful response message matches the messages of PUT /painting/{id}.
+<br>
+DELETE /paintinginfo/{id} must be run first in order to successfully delete a painting from the database.
+
+####
