@@ -13,9 +13,9 @@
 [Github](https://github.com/christinabuencamino) | [LinkedIn](https://www.linkedin.com/in/christina-buencamino/)
 <br>
 ## Background
-The database for this API was created in MySQL and involves two tables: a Painting table and a PaintingInfo table, which have a one to one relationship with the Painting table being the parent. The Painting table uses PaintingId as a primary key, and the PaintingInfo table uses PaintingInfoId as a primary key, and FK_PaintingId as a foreign key pointed towards PaintingId in the Painting table.<br>
+The database for this API was created in MySQL and involves two tables: a Painting table and a PaintingInfo table, which have a one to one relationship with the Painting table being the parent. The Painting table uses PaintingId as a primary key, and the PaintingInfo table uses PaintingInfoId as a primary key, and FK_PaintingId as a foreign key pointed towards PaintingId in the Painting table.
 
-
+{: style="text-align:center"}
 ![image](https://user-images.githubusercontent.com/66935005/166314404-b607cecf-0965-46dc-b5e7-0a9fc68265f3.png)
   
 
