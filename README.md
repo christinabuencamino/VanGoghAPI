@@ -15,7 +15,9 @@
 ## Background
 The database for this API was created in MySQL and involves two tables: a Painting table and a PaintingInfo table, which have a one to one relationship with the Painting table being the parent. The Painting table uses PaintingId as a primary key, and the PaintingInfo table uses PaintingInfoId as a primary key, and FK_PaintingId as a foreign key pointed towards PaintingId in the Painting table.<br>
 
+
 ![image](https://user-images.githubusercontent.com/66935005/166314404-b607cecf-0965-46dc-b5e7-0a9fc68265f3.png)
+  
 
 <br>
 I have included 9 of his most famous paintings as samples in the database. Their names are stored in Paintings, and their details (such as year made, category, and location) are in PaintingInfo. <br>
