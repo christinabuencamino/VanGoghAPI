@@ -14,8 +14,54 @@ I have included 9 of his most famous paintings as samples in the database. Their
 {: style="text-align:center"}
 ![https://user-images.githubusercontent.com/66935005/166315898-bc696faf-abcb-4730-b965-9ad163b33b93.png](https://user-images.githubusercontent.com/66935005/166315898-bc696faf-abcb-4730-b965-9ad163b33b93.png)
 
-### Response 
-lol
+The tables were set up as follows (I chose to add location later on) - constraints NOT NULL and DEFAULT are used:
+
+```SQL
+CREATE TABLE Paintings(
+  PaintingId INT NOT NULL AUTO_INCREMENT,
+  PaintingName VARCHAR(1000) NOT NULL,
+  PRIMARY KEY ( PaintingId )
+);
+
+CREATE TABLE PaintingInfo(
+  PaintingId INT NOT NULL AUTO_INCREMENT,
+  Location VARCHAR(1000),
+  YearFinished INT,
+  IsPortrait BOOLEAN,
+  IsLandscape BOOLEAN,
+  IsFloral BOOLEAN,
+  IsAnimal BOOLEAN,
+  PRIMARY KEY ( PaintingId )
+);
+
+ALTER TABLE Painting ADD CONSTRAINT FK_PaintingInfo FOREIGN KEY (PaintingId) REFERENCES PaintingInfo(PaintingId);
+
+ALTER TABLE paintinginfo ALTER Location SET DEFAULT 'Not listed.';
+
+ALTER TABLE paintinginfo ALTER IsPortrait SET DEFAULT 0;
+ALTER TABLE paintinginfo ALTER IsSelf SET DEFAULT 0;
+ALTER TABLE paintinginfo ALTER IsPlant SET DEFAULT 0;
+ALTER TABLE paintinginfo ALTER IsAnimal SET DEFAULT 0;
+ALTER TABLE paintinginfo ALTER IsLandscape SET DEFAULT 0;
+```
+
+### Response Class
+The Response class was created in order to standardize the response message from every HTTP request. It very simply holds three members: statusCode (the HTTP code associated with the call), statusDescription (string explanation of what the statusCode means), and a paintings list (which simultaneously calls PaintingInfo):
+
+```C#
+namespace VanGoghAPI.Models
+{
+    public class Response
+    {
+        public int statusCode { get; set; }
+        
+        public string statusDescription { get; set; } 
+
+        // GET method properties for both painting and paintinginfo:
+        public List<Painting> paintings { get; set; }
+    }
+}
+```
 
 ### API Endpoints and HTTP Responses
 There are three endpoints currently supported:
