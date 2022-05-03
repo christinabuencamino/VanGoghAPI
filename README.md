@@ -148,7 +148,7 @@ Example of failure:
     "statusDescription": "No paintings found.",
     "paintings": null
 ```
-<br>
+
 POST /painting requires a request body in the following format, where you can optionally add painting information:
 
 ```JSON
@@ -217,7 +217,7 @@ Example of a failed GET response:
 }
 ```
 
-<br>
+
 PUT /painting/{id} updates painting information where PaintingId = id. Sample request body:
 
 ```JSON
@@ -274,7 +274,6 @@ and a failure when paintingId does not exist:
 }
 ```
 
-<br>
 The DELETE method will only process if PaintingInfo for the associated id has been deleted already. Example of success:
 
 ```JSON
@@ -304,8 +303,6 @@ Example of failure PaintingInfo was not deleted prior:
     "paintings": null
 }
 ```
-
-<br>
 
 #### 3. /paintinginfo/{id}
 Supports PUT and DELETE methods.
