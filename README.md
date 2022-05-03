@@ -45,6 +45,7 @@ ALTER TABLE paintinginfo ALTER IsAnimal SET DEFAULT 0;
 ALTER TABLE paintinginfo ALTER IsLandscape SET DEFAULT 0;
 ```
 
+Please note that the repetitive ALTER TABLE's occured because I chose to implement the DEFAULT constraint after already creating the tables. <br>
 Here are example SQL statements for updating and adding to the database:
 
 ```SQL
