@@ -276,7 +276,36 @@ and a failure when paintingId does not exist:
 
 <br>
 The DELETE method will only process if PaintingInfo for the associated id has been deleted already. Example of success:
-Example of failure:
+
+```JSON
+{
+    "statusCode": 200,
+    "statusDescription": "Successfully deleted painting #9",
+    "paintings": null
+}
+```
+
+Example of failure where parameter id does not exist:
+
+```JSON
+{
+    "statusCode": 404,
+    "statusDescription": "Painting #0 not found.",
+    "paintings": null
+}
+```
+
+Example of failure PaintingInfo was not deleted prior:
+
+```JSON
+{
+    "statusCode": 400,
+    "statusDescription": "Something went wrong. Did you delete the PaintingInfo yet?",
+    "paintings": null
+}
+```
+
+<br>
 
 #### 3. /paintinginfo/{id}
 Supports PUT and DELETE methods.
@@ -328,6 +357,14 @@ and a successful response message:
 
 and an unsuccessful response message matches the messages of PUT /painting/{id}.
 <br>
-DELETE /paintinginfo/{id} must be run first in order to successfully delete a painting from the database.
+DELETE /paintinginfo/{id} must be run first in order to successfully delete a painting from the database. Response messages for success and mismatched id are the same. Example of misc. failure:
 
-####
+```JSON
+{
+    "statusCode": 400,
+    "statusDescription": "Bad request.",
+    "paintings": null
+}
+```
+
+#### Thank you for reading!!
