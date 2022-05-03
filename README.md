@@ -25,12 +25,12 @@ CREATE TABLE Paintings(
 
 CREATE TABLE PaintingInfo(
   PaintingInfoId INT NOT NULL AUTO_INCREMENT,
-  Location VARCHAR(1000),
   YearFinished INT,
   IsPortrait BOOLEAN,
   IsLandscape BOOLEAN,
   IsFloral BOOLEAN,
   IsAnimal BOOLEAN,
+  Location VARCHAR(1000),
   PRIMARY KEY ( PaintingId )
 );
 
