@@ -24,7 +24,7 @@ CREATE TABLE Paintings(
 );
 
 CREATE TABLE PaintingInfo(
-  PaintingId INT NOT NULL AUTO_INCREMENT,
+  PaintingInfoId INT NOT NULL AUTO_INCREMENT,
   Location VARCHAR(1000),
   YearFinished INT,
   IsPortrait BOOLEAN,
@@ -43,6 +43,15 @@ ALTER TABLE paintinginfo ALTER IsSelf SET DEFAULT 0;
 ALTER TABLE paintinginfo ALTER IsPlant SET DEFAULT 0;
 ALTER TABLE paintinginfo ALTER IsAnimal SET DEFAULT 0;
 ALTER TABLE paintinginfo ALTER IsLandscape SET DEFAULT 0;
+```
+
+Here are example SQL statements for updating and adding to the database:
+
+```SQL
+UPDATE `vangoghservice`.`paintinginfo` SET `IsPortrait` = '0', `IsSelf` = '0', `IsPlant` = '0', `IsAnimal` = '0' WHERE (`InfoId` = '1');
+
+INSERT INTO Painting (PaintingName) VALUES ("Almond Blossoms");
+INSERT INTO PaintingInfo (YearFinished, IsPortrait, IsSelf, IsPlant, IsAnimal, IsLandscape, PaintingId, Location) VALUES (1890, False, False, True, False, False, 9, "Van Gogh Museum, Netherlands");
 ```
 
 ### Response Class
