@@ -17,7 +17,7 @@ CREATE TABLE PaintingInfo(
   PRIMARY KEY ( PaintingId )
 );
 
-ALTER TABLE PaintingInfo ADD CONSTRAINT FK_Painting FOREIGN KEY (PaintingId) REFERENCES Painting(PaintingId);
+ALTER TABLE PaintingInfo ADD CONSTRAINT FK_Painting FOREIGN KEY (PaintingInfoId) REFERENCES Painting(PaintingId);
 
 ALTER TABLE paintinginfo ALTER Location SET DEFAULT 'Not listed.';
 
