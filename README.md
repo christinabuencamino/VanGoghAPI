@@ -17,6 +17,10 @@ I have included 9 of his most famous paintings as samples in the database. Their
 The tables were set up as follows (I chose to add location later on) - constraints NOT NULL and DEFAULT are used:
 
 ```SQL
+CREATE DATABASE VanGoghService;
+
+USE VanGoghService;
+
 CREATE TABLE Paintings(
   PaintingId INT NOT NULL AUTO_INCREMENT,
   PaintingName VARCHAR(1000) NOT NULL,
@@ -30,11 +34,12 @@ CREATE TABLE PaintingInfo(
   IsLandscape BOOLEAN,
   IsFloral BOOLEAN,
   IsAnimal BOOLEAN,
+  PaintingId INT,
   Location VARCHAR(1000),
-  PRIMARY KEY ( PaintingInfoId )
+  PRIMARY KEY ( PaintingId )
 );
 
-ALTER TABLE PaintingInfo ADD CONSTRAINT FK_Painting FOREIGN KEY (PaintingInfoId) REFERENCES Painting(PaintingId);
+ALTER TABLE PaintingInfo ADD CONSTRAINT FK_Painting FOREIGN KEY (PaintingId) REFERENCES Painting(PaintingId);
 
 ALTER TABLE paintinginfo ALTER Location SET DEFAULT 'Not listed.';
 
