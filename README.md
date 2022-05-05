@@ -31,10 +31,10 @@ CREATE TABLE PaintingInfo(
   IsFloral BOOLEAN,
   IsAnimal BOOLEAN,
   Location VARCHAR(1000),
-  PRIMARY KEY ( PaintingId )
+  PRIMARY KEY ( PaintingInfoId )
 );
 
-ALTER TABLE PaintingInfo ADD CONSTRAINT FK_Painting FOREIGN KEY (PaintingId) REFERENCES Painting(PaintingId);
+ALTER TABLE PaintingInfo ADD CONSTRAINT FK_Painting FOREIGN KEY (PaintingInfoId) REFERENCES Painting(PaintingId);
 
 ALTER TABLE paintinginfo ALTER Location SET DEFAULT 'Not listed.';
 
