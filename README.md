@@ -36,7 +36,7 @@ CREATE TABLE PaintingInfo(
   IsAnimal BOOLEAN,
   PaintingId INT,
   Location VARCHAR(1000),
-  PRIMARY KEY ( PaintingId )
+  PRIMARY KEY ( PaintingInfoId )
 );
 
 ALTER TABLE PaintingInfo ADD CONSTRAINT FK_Painting FOREIGN KEY (PaintingId) REFERENCES Painting(PaintingId);
