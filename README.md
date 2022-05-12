@@ -325,10 +325,7 @@ PUT /paintinginfo/{id} updates the PaintingInfo of a painting with paintingId = 
 
 ```JSON
 {
-    "paintingId": 4,
-    "paintingName": "Irises",
-    "paintingInfo": {
-       "paintingInfoId": 4,
+                "paintingInfoId": 4,
                 "yearFinished": 1889,
                 "isPortrait": false,
                 "isSelf": false,
@@ -337,8 +334,7 @@ PUT /paintinginfo/{id} updates the PaintingInfo of a painting with paintingId = 
                 "isLandscape": false,
                 "paintingId": 4,
                 "location": "J. Paul Getty Museum, California"
-            }
-}
+
 ```
 
 and a successful response message:
