@@ -345,13 +345,6 @@ and a successful response message:
 
 ```JSON
 {
-    "statusCode": 200,
-    "statusDescription": "Update successful on painting #4!",
-    "paintings": [
-        {
-            "paintingId": 4,
-            "paintingName": "Irises",
-            "paintingInfo": {
                 "paintingInfoId": 4,
                 "yearFinished": 1889,
                 "isPortrait": false,
@@ -361,9 +354,6 @@ and a successful response message:
                 "isLandscape": false,
                 "paintingId": 4,
                 "location": "J. Paul Getty Museum, California"
-            }
-        }
-    ]
 }
 ```
 
